@@ -52,6 +52,11 @@ class ProductMapper
             throw new \DomainException('Sku field is not accessible');
         }
 
+        if ($accessor->isReadable($entry, $this->productMapping->idPath))
+        {
+            $product->setId($accessor->getValue($entry, $this->productMapping->idPath));
+        }
+
         if ($accessor->isReadable($entry, $this->productMapping->countPath)) {
             $product->setCount($accessor->getValue($entry, $this->productMapping->countPath));
         }

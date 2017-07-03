@@ -32,6 +32,7 @@ class ProductMapperTestMapperTest extends TestCase
         $productEntries[] = [
             [
                 'sku' => 'sku_test1',
+                'id' => 1,
                 'cat_id' => 1,
                 'count' => 5,
                 'title' => 'titl',
@@ -47,6 +48,7 @@ class ProductMapperTestMapperTest extends TestCase
         $productEntries[] = [
             [
                 'sku' => 'sku_test',
+                'id' => 1,
                 'count' => 5,
                 'cat_id' => 1,
                 'title' => 'titl',
@@ -63,6 +65,7 @@ class ProductMapperTestMapperTest extends TestCase
         $productEntries[] = [
             [
                 'sku' => 'sku_test',
+                'id' => 1,
                 'count' => 5,
                 'cat_id' => 1,
                 'title' => 'titl',
@@ -91,6 +94,7 @@ class ProductMapperTestMapperTest extends TestCase
 
         $mapping->categoryIdPath = '[cat_id]';
         $mapping->skuPath = '[sku]';
+        $mapping->idPath = '[id]';
         $mapping->countPath = '[count]';
         $mapping->titlePath = '[title]';
         $mapping->descriptionPath = '[description]';
@@ -111,6 +115,11 @@ class ProductMapperTestMapperTest extends TestCase
         $product = $mapper->mapToProduct($productEntry);
 
         $this->assertEquals($productEntry['sku'], $product->getSku());
+
+        if (isset($productEntry['id'])) {
+            $this->assertEquals($productEntry['id'], $product->getId());
+        }
+
         if (isset($productEntry['cat_id'])) {
             $this->assertEquals($productEntry['cat_id'], $product->getCategoryId());
         }

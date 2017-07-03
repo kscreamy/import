@@ -21,6 +21,11 @@ class ProductMapping
     /**
      * @var string
      */
+    public $idPath;
+
+    /**
+     * @var string
+     */
     public $skuPath;
 
     /**

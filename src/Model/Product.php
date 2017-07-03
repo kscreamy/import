@@ -20,6 +20,11 @@ class Product
     private $sku;
 
     /**
+     * @var int
+     */
+    private $id;
+
+    /**
      * @var array of ProductPrice
      */
     private $prices = [];
@@ -39,6 +44,24 @@ class Product
      * @var int
      */
     private $categoryId;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return string
