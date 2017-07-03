@@ -1,6 +1,7 @@
 {
   "name": "kscreamy/import",
   "description": "price import lib",
+  "license": "proprietary",
   "require": {
     "php" : ">=5.6",
     "symfony/property-access": "~v3.3"
