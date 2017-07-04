@@ -2,7 +2,6 @@
 
 namespace Screamy\PriceImporter\Mapper;
 
-use Screamy\PriceImporter\Model\Category;
 use Screamy\PriceImporter\Model\Product;
 use Screamy\PriceImporter\Model\Product\ProductPrice;
 use Screamy\PriceImporter\Model\Product\ProductProperty;
@@ -45,23 +44,21 @@ class ProductMapper
     {
         $product = new Product();
         $accessor = $this->accessor;
-
         if ($accessor->isReadable($entry, $this->productMapping->skuPath)) {
             $product->setSku($accessor->getValue($entry, $this->productMapping->skuPath));
         } else {
             throw new \DomainException('Sku field is not accessible');
         }
 
-        if ($accessor->isReadable($entry, $this->productMapping->idPath))
-        {
+        if ($this->productMapping->idPath && $accessor->isReadable($entry, $this->productMapping->idPath)) {
             $product->setId($accessor->getValue($entry, $this->productMapping->idPath));
         }
 
-        if ($accessor->isReadable($entry, $this->productMapping->countPath)) {
+        if ($this->productMapping->countPath && $accessor->isReadable($entry, $this->productMapping->countPath)) {
             $product->setCount($accessor->getValue($entry, $this->productMapping->countPath));
         }
 
-        if ($accessor->isReadable($entry, $this->productMapping->categoryIdPath)) {
+        if ($this->productMapping->countPath && $accessor->isReadable($entry, $this->productMapping->categoryIdPath)) {
             $product->setCategoryId($accessor->getValue($entry, $this->productMapping->categoryIdPath));
         }
 
@@ -83,11 +80,11 @@ class ProductMapper
         $accessor = $this->accessor;
         $mapping = $this->productMapping;
 
-        if ($accessor->isReadable($entry, $mapping->titlePath)) {
+        if ($mapping->titlePath && $accessor->isReadable($entry, $mapping->titlePath)) {
             $product->setTitle($accessor->getValue($entry, $mapping->titlePath));
         }
 
-        if ($accessor->isReadable($entry, $mapping->descriptionPath)) {
+        if ($mapping->descriptionPath && $accessor->isReadable($entry, $mapping->descriptionPath)) {
             $product->setDescription($accessor->getValue($entry, $mapping->descriptionPath));
         }
     }
@@ -145,7 +142,7 @@ class ProductMapper
                 $value = $accessor->getValue($entry, $kvMapping->valuePath);
             }
 
-            if ($accessor->isReadable($entry, $kvMapping->keyPath)) {
+            if ($kvMapping->keyPath && $accessor->isReadable($entry, $kvMapping->keyPath)) {
                 $key = $accessor->getValue($entry, $kvMapping->keyPath);
             }
 
