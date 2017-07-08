@@ -15,6 +15,11 @@ class ProductProperty
     /**
      * @var string
      */
+    private $title;
+
+    /**
+     * @var string
+     */
     private $value;
 
     /**
