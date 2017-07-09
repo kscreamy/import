@@ -8,10 +8,10 @@ use Screamy\PriceImporter\Mapper\CategoryMapper;
 use Screamy\PriceImporter\Parser\IteratorProviderInterface;
 
 /**
- * Class CategoryImporter
+ * Class CategoryImportManager
  * @package Screamy\PriceImporter\Utils
  */
-class CategoryImporter
+class CategoryImportManager
 {
     /**
      * @var IteratorProviderInterface
