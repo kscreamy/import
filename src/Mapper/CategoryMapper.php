@@ -34,15 +34,15 @@ class CategoryMapper
 
     /**
      * CategoryMapper constructor.
-     * @param string $titlePath
      * @param string $idPath
+     * @param string $titlePath
      * @param string $parentIdPath
      */
-    public function __construct($titlePath, $idPath, $parentIdPath)
+    public function __construct($idPath, $titlePath, $parentIdPath)
     {
         $this->accessor = PropertyAccess::createPropertyAccessor();
-        $this->titlePath = $titlePath;
         $this->idPath = $idPath;
+        $this->titlePath = $titlePath;
         $this->parentIdPath = $parentIdPath;
     }
 

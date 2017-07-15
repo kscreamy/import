@@ -94,6 +94,8 @@ class CSVIterator implements \Iterator
      */
     public function rewind()
     {
+        $this->currentLine = null;
+        $this->currentKey = null;
         $this->fileResource = null;
     }
 
