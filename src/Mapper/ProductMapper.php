@@ -54,12 +54,20 @@ class ProductMapper
             $product->setId($accessor->getValue($entry, $this->productMapping->idPath));
         }
 
+        if ($this->productMapping->imagePathPath && $accessor->isReadable($entry, $this->productMapping->imagePathPath)) {
+            $product->setImagePath($accessor->getValue($entry, $this->productMapping->imagePathPath));
+        }
+
         if ($this->productMapping->countPath && $accessor->isReadable($entry, $this->productMapping->countPath)) {
             $product->setCount($accessor->getValue($entry, $this->productMapping->countPath));
         }
 
         if ($this->productMapping->countPath && $accessor->isReadable($entry, $this->productMapping->categoryIdPath)) {
             $product->setCategoryId($accessor->getValue($entry, $this->productMapping->categoryIdPath));
+        }
+
+        if ($this->productMapping->brandPath && $accessor->isReadable($entry, $this->productMapping->brandPath)) {
+            $product->setBrand($accessor->getValue($entry, $this->productMapping->brandPath));
         }
 
         $this->mapDescription($product, $entry);

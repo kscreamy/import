@@ -49,4 +49,14 @@ class ProductMapping
      * @var string
      */
     public $categoryIdPath;
+
+    /**
+     * @var string
+     */
+    public $imagePathPath;
+
+    /**
+     * @var string
+     */
+    public $brandPath;
 }

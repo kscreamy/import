@@ -2,8 +2,6 @@
 
 namespace Screamy\PriceImporter\Gateway;
 
-use Screamy\PriceImporter\Mapper\CategoryIterator;
-
 /**
  * Interface CategoryGatewayInterface
  * @package Screamy\PriceImporter\Gateway
@@ -11,8 +9,8 @@ use Screamy\PriceImporter\Mapper\CategoryIterator;
 interface CategoryGatewayInterface
 {
     /**
-     * @param CategoryIterator $categories
+     * @param array $categories
      * @return null
      */
-    public function emitCategories(CategoryIterator $categories);
+    public function emitCategories(array $categories);
 }

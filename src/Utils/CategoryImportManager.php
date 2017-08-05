@@ -3,7 +3,6 @@
 namespace Screamy\PriceImporter\Utils;
 
 use Screamy\PriceImporter\Gateway\CategoryGatewayInterface as CategoryGateway;
-use Screamy\PriceImporter\Mapper\CategoryIterator;
 use Screamy\PriceImporter\Mapper\CategoryMapper;
 use Screamy\PriceImporter\Parser\IteratorProviderInterface;
 
@@ -49,9 +48,10 @@ class CategoryImportManager
      */
     public function importCategories($filePath)
     {
-        $this->categoryGateway->emitCategories(new CategoryIterator(
-            $this->parser->getIterator($filePath),
-            $this->mapper
-        ));
+        $categories = [];
+        foreach ($this->parser->getIterator($filePath) as $categoryEntry) {
+            $categories[] = $this->mapper->mapToCategory($categoryEntry);
+        }
+        $this->categoryGateway->emitCategories($categories);
     }
 }

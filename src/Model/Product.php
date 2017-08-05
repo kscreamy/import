@@ -46,6 +46,16 @@ class Product
     private $categoryId;
 
     /**
+     * @var string
+     */
+    private $imagePath;
+
+    /**
+     * @var string
+     */
+    private $brand;
+
+    /**
      * @return int
      */
     public function getId()
@@ -148,6 +158,42 @@ class Product
     public function setCategoryId($categoryId)
     {
         $this->categoryId = $categoryId;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImagePath()
+    {
+        return $this->imagePath;
+    }
+
+    /**
+     * @param string $imagePath
+     * @return $this
+     */
+    public function setImagePath($imagePath)
+    {
+        $this->imagePath = $imagePath;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param string $brand
+     * @return $this
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
         return $this;
     }
 }
