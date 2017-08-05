@@ -53,7 +53,12 @@ class ProductMapping
     /**
      * @var string
      */
-    public $imagePathPath;
+    public $mainImagePathPath;
+
+    /**
+     * @var string
+     */
+    public $additionalImagesPath;
 
     /**
      * @var string

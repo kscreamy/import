@@ -13,7 +13,7 @@ use Screamy\PriceImporter\Utils\ProductMapping;
  * Class ProductMapperTestMapperTest
  * @package tests\Mapper
  */
-class ProductMapperTestMapperTest extends TestCase
+class ProductMapperTest extends TestCase
 {
 
     /**

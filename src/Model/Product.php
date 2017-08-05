@@ -48,12 +48,12 @@ class Product
     /**
      * @var string
      */
-    private $imagePath;
+    private $brand;
 
     /**
-     * @var string
+     * @var array
      */
-    private $brand;
+    private $images;
 
     /**
      * @return int
@@ -164,24 +164,6 @@ class Product
     /**
      * @return string
      */
-    public function getImagePath()
-    {
-        return $this->imagePath;
-    }
-
-    /**
-     * @param string $imagePath
-     * @return $this
-     */
-    public function setImagePath($imagePath)
-    {
-        $this->imagePath = $imagePath;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getBrand()
     {
         return $this->brand;
@@ -195,5 +177,23 @@ class Product
     {
         $this->brand = $brand;
         return $this;
+    }
+
+    /**
+     * @param string $imagePath
+     * @return $this
+     */
+    public function addImagePath($imagePath)
+    {
+        $this->images[] = $imagePath;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }
